@@ -49,7 +49,7 @@ router.route('/signUp').post((req,res)=>{
     })
     newUser.save()
 })
-router.route('/signUp').get((req,res)=>{
+router.route('/signUpe').get((req,res)=>{
     User.findOne({ userId:req.query.userId}, function(err, users){
         if(err){
             console.log(err);
