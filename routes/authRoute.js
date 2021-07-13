@@ -60,7 +60,7 @@ router.route('/signUp').get((req,res)=>{
     });
 })
 
-router.route('/signIn').get((req,res)=>{
+router.route('/signIne').get((req,res)=>{
     User.findOne({ userId:req.query.userId}, function(err, users){
    req.session.userid=req.query.userId
         if(err){

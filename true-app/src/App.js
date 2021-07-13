@@ -160,10 +160,6 @@ useEffect(() => {
     
       <Router>
      
-       
-       
-
-      
         <Switch>
           <Route path="/signIn">
           <Subutton onClick={onClick}/>
