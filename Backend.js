@@ -77,7 +77,7 @@ app.post('/register',redirectHome, (req,res) =>{
 //
 */
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+    res.sendFile(path.join(__dirname, "true-app", "build", "index.html"));
 });
 
 const server= app.listen(port, function(){
