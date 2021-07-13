@@ -24,7 +24,7 @@ const Sform =({changr})=>{
       
       
 //
-axios.get('http://localhost:3001/signUp', {
+axios.get('https://practicechat.herokuapp.com/signIne', {
   params:{
     userId:user
   }
@@ -38,7 +38,7 @@ axios.get('http://localhost:3001/signUp', {
     alert('The username or password is incorrect')
   }
   else{
-    axios.get('http://localhost:3001/signIn', {
+    axios.get('https://practicechat.herokuapp.com/signIne', {
       params:{
         userId:user
       }

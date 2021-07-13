@@ -24,7 +24,7 @@ const Suform =()=>{
       
       
 //
-axios.get('http://localhost:3001/signUp', {
+axios.get('http://localhost:3001/signUpe', {
   params:{
     userId:user
   }
