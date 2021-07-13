@@ -3,17 +3,17 @@ const express=require('express')
 const cors= require("cors");
 const app=express();
 const session= require('express-session')
+const path = require("path")
 app.use(cors());
 app.use(express.json());
 const MongoDBStore= require( 'connect-mongodb-session')(session)
-
+const port = process.env.PORT || 3001
+require("dotenv").config()
 /////////////////////
 
-  
-/////////////////////
 //mongo session
 const store = new MongoDBStore({
-    uri:" mongodb+srv://Foxtrot:Mongopassftw@cluster0.0zdrk.mongodb.net/Messager?retryWrites=true&w=majority",
+    uri:process.env.MONGODB_URI,
     collection: 'Messagercollection'
   });
 app.use(session({
@@ -32,7 +32,7 @@ app.use(session({
 //
 
 //connect to mongoose
-mongoose.connect("mongodb+srv://Foxtrot:Mongopassftw@cluster0.0zdrk.mongodb.net/Messager?retryWrites=true&w=majority",
+mongoose.connect(process.env.MONGODB_URI,
  { useUnifiedTopology: true, 
 useNewUrlParser: true,
 useFindAndModify:false });
@@ -46,7 +46,7 @@ useFindAndModify:false });
 app.use( require("./routes/messageRoute"))
 app.use( require("./routes/authRoute"))
 app.use( require("./routes/roomsRoute"))
-
+app.use(express.static(path.join(__dirname, "client", "build")))
 //
 
 //
@@ -76,8 +76,46 @@ app.post('/register',redirectHome, (req,res) =>{
 
 //
 */
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
-app.listen(3001, function(){
+const server= app.listen(port, function(){
     console.log("express server is running on port 3001")
 })
 
+const io = require("socket.io")(server, {
+  cors: {
+
+    origin: port,
+    methods: ["GET", "POST"],
+    allowedHeaders: ["my-custom-header",'Access-Control-Allow-Origin'],
+    credentials: false
+  }
+})
+
+/////////////////////
+io.on("connection", ( socket) => {
+  var prevRoom=''
+  console.log('hand'+socket.handshake.query.x)
+  socket.on('check',(dat)=>{
+   if(dat.uid==socket.handshake.query.x){
+     socket.leave(prevRoom)
+     socket.roomId=dat.room
+     prevRoom=dat.room
+     socket.join(socket.roomId)
+   }else{
+     console.log('loser')
+   }
+  
+  })
+    
+    
+    socket.on("send-message", (data) => {
+      console.log(socket.handshake.query.x+' is in '+socket.roomId+' saying '+data.message)
+      io.in(socket.roomId).emit('recieve-messageu', data);
+    // io.emit('recieve-messageu',data)
+    });
+  
+ 
+})

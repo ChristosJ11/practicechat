@@ -3,18 +3,10 @@ const app = require("express")();
 const httpServer = require("http").createServer(app)
 const router= express.Router();
 const Message= require("../models/messageModel")
-
+const port = process.env.PORT || 3001
 
   
-const io = require("socket.io")(httpServer, {
-  cors: {
 
-    origin: "http://localhost:3000",
-    methods: ["GET", "POST"],
-    allowedHeaders: ["my-custom-header",'Access-Control-Allow-Origin'],
-    credentials: false
-  }
-})
   
   
   
@@ -80,37 +72,13 @@ router.route('/create').post((req,res)=>{
   
 
   
-  io.on("connection", ( socket) => {
-    var prevRoom=''
-    console.log('hand'+socket.handshake.query.x)
-    socket.on('check',(dat)=>{
-     if(dat.uid==socket.handshake.query.x){
-       socket.leave(prevRoom)
-       socket.roomId=dat.room
-       prevRoom=dat.room
-       socket.join(socket.roomId)
-     }else{
-       console.log('loser')
-     }
-    
-    })
-      
-      
-      socket.on("send-message", (data) => {
-        console.log(socket.handshake.query.x+' is in '+socket.roomId+' saying '+data.message)
-        io.in(socket.roomId).emit('recieve-messageu', data);
-      // io.emit('recieve-messageu',data)
-      });
-    
-    
-   
-})
+
   
   //
 
 module.exports= router
 
-httpServer.listen(3002);
+
 /*
 io.sockets.on('connection', (socket) => {
   socket.on('createRoom', function(data) {

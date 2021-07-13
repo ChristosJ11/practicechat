@@ -23,8 +23,8 @@ import Roomslist from './components/Roomslist'
 ////////////////////////////////////////////
 // ES6 import or TypeScript
 import { io } from "socket.io-client";
-
-const socket = io("http://localhost:3002",{
+const port = process.env.PORT || 3002
+const socket = io(port,{
   withCredentials: false,
   transports:['websocket'],
   extraHeaders: {
