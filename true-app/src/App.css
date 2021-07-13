@@ -1,0 +1,122 @@
+
+.App {
+  margin: 0%;
+  text-align: center;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+:root {
+  --color4u: #C7D3D4FF;
+  --color4them:#603F83FF;
+}
+h1{
+  font-family: 'Alata', sans-serif;
+  font-size: 2vh;
+}
+p{
+  font-family: 'Alata', sans-serif;
+  font-size: 2vh;
+}
+.tt{
+  border: .25vw solid black;
+  width: 50vw;
+  height: 5vh;
+}
+.tb{
+  font-family: 'Poppins', sans-serif;
+  font-size: 2vh;
+  background-color: white;
+  border:.25vw solid black;
+}
+
+.Textshow{
+  background-color: grey;
+}
+.textpapa{
+  margin:0%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: white;
+  width: 100vw;
+  height:75vh;
+  overflow-y: auto;
+}
+
+.textbox {
+  margin-top: 3vh;
+  width:50%;
+  min-height:10vh;
+  background-color:var(--color4them);
+  border-color: var(--color4them);
+  border-style: solid;
+  border-width: .25vw;
+}
+
+.textboxu {
+
+  margin-left: 49%;
+  margin-top: 3vh;
+  width:50%;
+  min-height:10vh;
+  background-color: var(--color4u);
+  border-color: var(--color4u);
+  border-style: solid;
+  border-width: .25vw;
+  
+}
+
+.textbox .fromwho{
+  font-family: 'Alata', sans-serif;
+  font-size: 2vh;
+  color:var(--color4u);
+}
+
+.textbox .themessage{
+  font-family: 'Alata', sans-serif;
+  font-size: 3vh;
+  color:var(--color4u);
+  
+}
+.textboxu .fromwho{
+  font-family: 'Alata', sans-serif;
+  font-size: 2vh;
+  color:var(--color4them);
+}
+
+.textboxu .themessage{
+  font-family: 'Alata', sans-serif;
+  font-size: 3vh;
+  color:var(--color4them);
+  
+}
+
+.roomButton{
+  font-family:'Poppins', sans-serif;
+  width: 20vw;
+  height: 10vh;
+  background-color: var(--color4u);
+  transition-duration: .45s;
+  
+}
+.roomButton:hover{
+background-color: rgba(21, 4, 131, 0.589);
+}
