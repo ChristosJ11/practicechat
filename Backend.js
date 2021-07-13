@@ -46,7 +46,7 @@ useFindAndModify:false });
 app.use( require("./routes/messageRoute"))
 app.use( require("./routes/authRoute"))
 app.use( require("./routes/roomsRoute"))
-app.use(express.static(path.join(__dirname, "client", "build")))
+app.use(express.static(path.join(__dirname, "true-app", "build")))
 //
 
 //
