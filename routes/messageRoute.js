@@ -12,28 +12,7 @@ const port = process.env.PORT || 3001
   
 
     
-    //const newMessage = new Message({
-    //    title,
-    //   
-    //})//
-    //newMessage.save()
-  
-
-////////////////////////////
-/*
-const connect= new Promise((resolve, reject)=>{MongoClient.connect(url, { useUnifiedTopology: true, useNewUrlParser: true },function(err, db) {
-  if (err) throw err;
-  var dbo = db.db("Messager");
-  dbo.collection("messages").find({}).toArray(function(err, result) {
-    if (err) throw err;
-    console.log(result);
-    db.close();
-  });
-})});
-connect.then(value => { return value + ' and bar'; }).catch(value => { return value + ' and bar'; })
-
-*/
-////////////////
+    
 router.route('/create').post((req,res)=>{
     const title=req.body.title
     const userId=req.body.userId
