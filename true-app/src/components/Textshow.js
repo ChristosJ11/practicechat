@@ -21,7 +21,7 @@ const Textshow = ({texts, uid,all,room,removeAll})=> {
             removeAll()
             textpapa.current.scrollTop=(textpapa.current.offsetHeight*textpapa.current.clientHeight)
         })
-      },[room]);
+      },[room])
       
       useEffect(()=>{
         textpapa.current.scrollTop=(textpapa.current.offsetHeight*textpapa.current.clientHeight)
