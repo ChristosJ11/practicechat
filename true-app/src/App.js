@@ -11,7 +11,6 @@ import {
   useLocation,
   Redirect
 } from "react-router-dom";
-import axios from "axios"
 import Texttype from './components/Texttype'
 import Textshow from './components/Textshow'
 import Sbutton from './components/Sbutton'

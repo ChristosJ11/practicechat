@@ -1,13 +1,13 @@
 import React, { Component, useEffect, useState }  from 'react';
 import axios from "axios"
 
-
+const baseURL= process.env.baseURL||'http://localhost:3001'
 const Friends=({changesid,uid})=>{
     const[mytext, typedText]= useState('')
     const[sId,setsId]=useState('')
     const onTurnin=(e)=>{
         e.preventDefault()
-        axios.get('https://practicechat.herokuapp.com/getRooms', {
+        axios.get(baseURL+'/getRooms', {
         params:{
           userId:uid
         }
@@ -26,7 +26,7 @@ const Friends=({changesid,uid})=>{
           from:uid,
           to:mytext,
         }
-        axios.post('https://practicechat.herokuapp.com/newRoom',roomPayload)
+        axios.post(baseURL+'/newRoom',roomPayload)
         /*
         axios.get('http://localhost:3001/newFriend', {
           params:{

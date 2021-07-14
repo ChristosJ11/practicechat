@@ -2,7 +2,7 @@ import React, { Component }  from 'react';
 import {useState} from 'react'
 import axios from "axios"
 
-
+const baseURL= process.env.baseURL||'http://localhost:3001'
 const Texttype = ({addText,uid,rid})=> {
     const[mytext, typedText]= useState('')
     
@@ -18,7 +18,7 @@ const Texttype = ({addText,uid,rid})=> {
             roomId:rid,
           }
           
-         axios.post('https://practicechat.herokuapp.com/create', newMessage)
+         axios.post(baseURL+'/create', newMessage)
           
        addText(mytext)
        typedText('')

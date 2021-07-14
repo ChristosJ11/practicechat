@@ -8,6 +8,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+const baseURL= process.env.baseURL||'http://localhost:3001'
 const Suform =()=>{
     const[user, typedUser]=useState('')
     const[pass,typedPass]=useState('')
@@ -24,14 +25,14 @@ const Suform =()=>{
       
       
 //
-axios.get('https://practicechat.herokuapp.com/signUpe', {
+axios.get(baseURL+'/signUpe', {
   params:{
     userId:user
   }
 })
 .then(function (response) {
   if(response.data==null){
-   axios.post('https://practicechat.herokuapp.com/signUpe', sendUser)
+   axios.post(baseURL+'/signUpe', sendUser)
   }
   else{
     alert('this user already exists')

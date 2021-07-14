@@ -4,14 +4,14 @@ import axios from "axios"
 
 
 
- 
+const baseURL= process.env.baseURL||'http://localhost:3001'
 const Textshow = ({texts, uid,all,room,removeAll})=> {
   
     const[b, setb]=useState([{}])
     const textpapa=useRef(null)
       useEffect(async() => {
          
-        await axios.get('https://practicechat.herokuapp.com/create',{
+        await axios.get(baseURL+'/create',{
           params:{
             roomId:room,
           }

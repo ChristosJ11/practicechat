@@ -1,5 +1,6 @@
 import React, {  useEffect, useState }  from 'react';
 import axios from "axios"
+const baseURL= process.env.baseURL||'http://localhost:3001'
 const Roomslist=({uid,changeroom})=>{
     const[rooms,setrooms]=useState([{}])
     const[currentRoom,setcurrentRoom]=useState('')
@@ -10,7 +11,7 @@ const Roomslist=({uid,changeroom})=>{
     }
  
     useEffect(() => {
-      axios.get('https://practicechat.herokuapp.com/getRooms', {
+      axios.get(baseURL+'/getRooms', {
         params:{
           userId:uid
         }

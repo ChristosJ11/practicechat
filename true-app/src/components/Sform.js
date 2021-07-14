@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import {useState} from 'react'
 import axios from "axios"
-
+const baseURL= process.env.baseURL||'http://localhost:3001'
 const Sform =({changr})=>{
     const[user, typedUser]=useState('')
     const[pass,typedPass]=useState('')
@@ -24,7 +24,7 @@ const Sform =({changr})=>{
       
       
 //
-axios.get('https://practicechat.herokuapp.com/signUpe', {
+axios.get(baseURL+'/signUpe', {
   params:{
     userId:user
   }
@@ -39,7 +39,7 @@ axios.get('https://practicechat.herokuapp.com/signUpe', {
     alert('The username or password is incorrect')
   }
   else{
-    axios.get('https://practicechat.herokuapp.com/signIne', {
+    axios.get(baseURL+'/signIne', {
       params:{
         userId:user
       }
