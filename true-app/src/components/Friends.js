@@ -7,7 +7,7 @@ const Friends=({changesid,uid})=>{
     const[sId,setsId]=useState('')
     const onTurnin=(e)=>{
         e.preventDefault()
-        axios.get('http://localhost:3001/getRooms', {
+        axios.get('https://practicechat.herokuapp.com/getRooms', {
         params:{
           userId:uid
         }
@@ -26,7 +26,7 @@ const Friends=({changesid,uid})=>{
           from:uid,
           to:mytext,
         }
-        axios.post('http://localhost:3001/newRoom',roomPayload)
+        axios.post('https://practicechat.herokuapp.com/newRoom',roomPayload)
         /*
         axios.get('http://localhost:3001/newFriend', {
           params:{

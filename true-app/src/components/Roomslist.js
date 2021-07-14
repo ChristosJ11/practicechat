@@ -10,7 +10,7 @@ const Roomslist=({uid,changeroom})=>{
     }
  
     useEffect(() => {
-      axios.get('http://localhost:3001/getRooms', {
+      axios.get('https://practicechat.herokuapp.com/getRooms', {
         params:{
           userId:uid
         }

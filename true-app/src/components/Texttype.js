@@ -18,7 +18,7 @@ const Texttype = ({addText,uid,rid})=> {
             roomId:rid,
           }
           
-         axios.post('http://localhost:3001/create', newMessage)
+         axios.post('https://practicechat.herokuapp.com/create', newMessage)
           
        addText(mytext)
        typedText('')

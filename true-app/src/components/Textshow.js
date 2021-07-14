@@ -11,7 +11,7 @@ const Textshow = ({texts, uid,all,room,removeAll})=> {
     const textpapa=useRef(null)
       useEffect(async() => {
          
-        await axios.get('http://localhost:3001/create',{
+        await axios.get('https://practicechat.herokuapp.com/create',{
           params:{
             roomId:room,
           }

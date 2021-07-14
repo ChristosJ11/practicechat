@@ -168,7 +168,7 @@ useEffect(() => {
        <Sbutton onClick={onClick}/>
       {show?<Sform changr={uidchangr}/>:<p></p>}
       </Route>
-      <Route path="/create">
+      <Route path="/creator">
            <Textshow texts={texts} uid={uid}  all={all} room={room} removeAll={resetAll}/>
            <Friends changesid={blah} uid={uid}/>
            <Texttype addText={sendText} uid={uid} rid={room}/>

@@ -50,7 +50,7 @@ axios.get('https://practicechat.herokuapp.com/signUpe', {
       
     })
     
-    history.push('/create')
+    history.push('/creator')
   }
     
 
