@@ -24,7 +24,7 @@ const Sform =({changr})=>{
       
       
 //
-axios.get('https://practicechat.herokuapp.com/signIne', {
+axios.get('https://practicechat.herokuapp.com/signUpe', {
   params:{
     userId:user
   }
