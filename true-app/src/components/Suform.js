@@ -24,14 +24,14 @@ const Suform =()=>{
       
       
 //
-axios.get('http://localhost:3001/signUpe', {
+axios.get('https://practicechat.herokuapp.com/signUpe', {
   params:{
     userId:user
   }
 })
 .then(function (response) {
   if(response.data==null){
-   axios.post('http://localhost:3001/signUpe', sendUser)
+   axios.post('https://practicechat.herokuapp.com/signUpe', sendUser)
   }
   else{
     alert('this user already exists')
