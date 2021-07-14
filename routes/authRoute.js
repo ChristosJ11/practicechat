@@ -6,9 +6,7 @@ const MongoDBStore= require( 'connect-mongodb-session')(session)
 const app=express()
 
 const httpServer = require("http").createServer(app)
-var mongodb= require('mongodb');
-var MongoClient = require('mongodb').MongoClient;
-var url = " mongodb+srv://Foxtrot:Mongopassftw@cluster0.0zdrk.mongodb.net/Messager?retryWrites=true&w=majority";
+
 
 //////////////////
 
@@ -17,7 +15,7 @@ var url = " mongodb+srv://Foxtrot:Mongopassftw@cluster0.0zdrk.mongodb.net/Messag
 
 //////////
 const store = new MongoDBStore({
-    uri:" mongodb+srv://Foxtrot:Mongopassftw@cluster0.0zdrk.mongodb.net/Messager?retryWrites=true&w=majority",
+    uri:process.env.MONGODB_URI,
     collection: 'Messagercollection'
   });
 app.use(session({
@@ -38,7 +36,7 @@ app.use(session({
 
 
   //
-router.route('/signUp').post((req,res)=>{
+router.route('/signUpe').post((req,res)=>{
     const userId=req.body.userId
     const password=req.body.password
     const sId=''

@@ -31,7 +31,7 @@ axios.get('http://localhost:3001/signUpe', {
 })
 .then(function (response) {
   if(response.data==null){
-   axios.post('http://localhost:3001/signUp', sendUser)
+   axios.post('http://localhost:3001/signUpe', sendUser)
   }
   else{
     alert('this user already exists')
