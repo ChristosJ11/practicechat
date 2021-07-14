@@ -1,6 +1,6 @@
 import React, {  useEffect, useState }  from 'react';
 import axios from "axios"
-const baseURL= process.env.BASEURLL||'http://localhost:3001'
+const baseURL= process.env.BASEURL||'http://localhost:3001'
 const Roomslist=({uid,changeroom})=>{
     const[rooms,setrooms]=useState([{}])
     const[currentRoom,setcurrentRoom]=useState('')
