@@ -24,7 +24,7 @@ const Sform =({changr})=>{
       
       
 //
-axios.get(baseURL+'/signUpe', {
+axios.get('/signUpe', {
   params:{
     userId:user
   }
@@ -39,7 +39,7 @@ axios.get(baseURL+'/signUpe', {
     alert('The username or password is incorrect')
   }
   else{
-    axios.get(baseURL+'/signIne', {
+    axios.get('/signIne', {
       params:{
         userId:user
       }
