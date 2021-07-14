@@ -4,7 +4,7 @@ const User= require("../models/userAuthModel")
 const session= require('express-session')
 const MongoDBStore= require( 'connect-mongodb-session')(session)
 const app=express()
-
+const localMongo=''
 //const httpServer = require("http").createServer(app)
 
 
@@ -15,7 +15,7 @@ const app=express()
 
 //////////
 const store = new MongoDBStore({
-    uri:process.env.MONGODB_URI,
+    uri:process.env.MONGODB_URI||'mongodb://localhost:3000/practiceChat',
     collection: 'Messagercollection'
   });
 app.use(session({
