@@ -11,7 +11,7 @@ const Textshow = ({texts, uid,all,room,removeAll})=> {
     const textpapa=useRef(null)
       useEffect(async() => {
          
-        await axios.get(baseURL+'/create',{
+        await axios.get('/create',{
           params:{
             roomId:room,
           }

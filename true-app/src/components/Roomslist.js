@@ -11,7 +11,7 @@ const Roomslist=({uid,changeroom})=>{
     }
  
     useEffect(() => {
-      axios.get(baseURL+'/getRooms', {
+      axios.get('/getRooms', {
         params:{
           userId:uid
         }

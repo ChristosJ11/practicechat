@@ -25,14 +25,14 @@ const Suform =()=>{
       
       
 //
-axios.get(baseURL+'/signUpe', {
+axios.get('/signUpe', {
   params:{
     userId:user
   }
 })
 .then(function (response) {
   if(response.data==null){
-   axios.post(baseURL+'/signUpe', sendUser)
+   axios.post('/signUpe', sendUser)
   }
   else{
     alert('this user already exists')

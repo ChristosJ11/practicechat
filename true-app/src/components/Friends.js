@@ -7,7 +7,7 @@ const Friends=({changesid,uid})=>{
     const[sId,setsId]=useState('')
     const onTurnin=(e)=>{
         e.preventDefault()
-        axios.get(baseURL+'/getRooms', {
+        axios.get('/getRooms', {
         params:{
           userId:uid
         }
@@ -26,7 +26,7 @@ const Friends=({changesid,uid})=>{
           from:uid,
           to:mytext,
         }
-        axios.post(baseURL+'/newRoom',roomPayload)
+        axios.post('/newRoom',roomPayload)
         /*
         axios.get('http://localhost:3001/newFriend', {
           params:{

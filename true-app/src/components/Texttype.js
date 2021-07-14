@@ -18,7 +18,7 @@ const Texttype = ({addText,uid,rid})=> {
             roomId:rid,
           }
           
-         axios.post(baseURL+'/create', newMessage)
+         axios.post('/create', newMessage)
           
        addText(mytext)
        typedText('')
