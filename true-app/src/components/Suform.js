@@ -8,7 +8,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-const baseURL= process.env.baseURL||'http://localhost:3001'
+const baseURL= process.env.BASEURL||'http://localhost:3001'
 const Suform =()=>{
     const[user, typedUser]=useState('')
     const[pass,typedPass]=useState('')

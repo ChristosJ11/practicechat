@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import {useState} from 'react'
 import axios from "axios"
-const baseURL= process.env.baseURL||'http://localhost:3001'
+const baseURL= process.env.BASEURL||'http://localhost:3001'
 const Sform =({changr})=>{
     const[user, typedUser]=useState('')
     const[pass,typedPass]=useState('')

@@ -4,7 +4,7 @@ import axios from "axios"
 
 
 
-const baseURL= process.env.baseURL||'http://localhost:3001'
+const baseURL= process.env.BASEURL||'http://localhost:3001'
 const Textshow = ({texts, uid,all,room,removeAll})=> {
   
     const[b, setb]=useState([{}])

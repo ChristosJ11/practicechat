@@ -1,7 +1,7 @@
 import React, { Component, useEffect, useState }  from 'react';
 import axios from "axios"
 
-const baseURL= process.env.baseURL||'http://localhost:3001'
+const baseURL= process.env.BASEURL||'http://localhost:3001'
 const Friends=({changesid,uid})=>{
     const[mytext, typedText]= useState('')
     const[sId,setsId]=useState('')
