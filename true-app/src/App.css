@@ -188,8 +188,8 @@ background-color: rgba(21, 4, 131, 0.589);
 }
 .scene {
   
-  width: var(--sizew);
-  height: var(--sizeh);
+  min-width: var(--sizew);
+  min-height: var(--sizeh);
   
   perspective: 20000px;
 }
