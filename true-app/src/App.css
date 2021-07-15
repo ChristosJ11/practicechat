@@ -42,26 +42,27 @@ html{
   margin: 0%;
   text-align: center;
 }
+/*
 
-/* width */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Track */
+
 ::-webkit-scrollbar-track {
   background: #f1f1f1; 
 }
  
-/* Handle */
+
 ::-webkit-scrollbar-thumb {
   background: #888; 
 }
 
-/* Handle on hover */
+
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+*/
 :root {
   --color4u: rgb(22, 22, 22);
   --color4them:rgb(22, 22, 22);
