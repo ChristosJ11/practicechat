@@ -23,7 +23,7 @@ import Roomslist from './components/Roomslist'
 // ES6 import or TypeScript
 import { io } from "socket.io-client";
 
-const socket = io('http://localhost:3001',{
+const socket = io({
   withCredentials: false,
   transports:['websocket'],
   extraHeaders: {
