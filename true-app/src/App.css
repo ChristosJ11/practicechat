@@ -108,9 +108,9 @@ p{
   background-color: rgba(255, 255, 255, 0);
   width: 90vw;
   height:75vh;
-  overflow-y: auto;
+  overflow-y: visible;
   overflow-x: hidden;
-  position:fixed;
+  position:relative;
 }
 
 .textbox {
@@ -194,6 +194,8 @@ background-color: rgba(21, 4, 131, 0.589);
   min-height: var(--sizeh);
   overflow-y: auto;
   perspective: 20000px;
+  display: flex;
+  flex-direction: column;
 }
 .cube {
   position: relative;
@@ -201,24 +203,29 @@ background-color: rgba(21, 4, 131, 0.589);
   min-height: inherit;
   transform-style: preserve-3d;
   transition-duration: 2s;
-  
+  display: flex;
+  flex-direction: column;
 }
 .cube-turn{
+  display: flex;
   position: relative;
+  flex-direction: column;
   min-width: inherit;
   min-height: inherit;
   transform-style: preserve-3d;
   transform: rotate3d(0, 1, 0,-90deg);
   transition-duration: 2s;
+  
 }
 .cube-face {
-  min-width: inherit;
-  min-height: inherit;
-  position: absolute;
+ display: flex;
+ flex-direction: column;
+  position: fixed;
   background-image: url(sky.jpg) ;
   background-repeat: no-repeat;
   background-size: cover;
   overflow: auto;
+  
 }
 .cube-face-front {
  
