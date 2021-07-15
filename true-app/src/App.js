@@ -23,7 +23,7 @@ import Roomslist from './components/Roomslist'
 // ES6 import or TypeScript
 import { io } from "socket.io-client";
 
-const socket = io({
+const socket = io('http://localhost:3001',{
   withCredentials: false,
   transports:['websocket'],
   extraHeaders: {
@@ -162,8 +162,11 @@ useEffect(() => {
     <div className="App">
     
       <Router>
-     
+      <Route path='/'>
+          <Link to="/signIn">Sign In</Link>
+          </Route>
         <Switch>
+          
           <Route path="/signIn">
           <Subutton onClick={onClick}/>
       {show?<Suform />:<p></p>}

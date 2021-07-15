@@ -24,7 +24,9 @@ const Textshow = ({texts, uid,all,room,removeAll})=> {
       },[room])
       
       useEffect(()=>{
+       
         textpapa.current.scrollTop=(textpapa.current.offsetHeight*textpapa.current.clientHeight)
+        
       },[all])
      
     return (
@@ -35,10 +37,11 @@ const Textshow = ({texts, uid,all,room,removeAll})=> {
      <div className='textpapa' ref={textpapa}><div> {b.map(home => <div key={home._id}className={home.userId==uid?'textboxu':'textbox'}><div className='themessage' >{home.title}</div>
           <div className='fromwho' >{home.userId}</div></div>)}</div>
  
-      </div>
+      
         
       <div>{ all.map(h=><div className={h.userId==uid?'textboxu':'textbox'}><div className='themessage' key='{home.title}'>{h.message}</div>
           <div className='fromwho' key='${home.userId}'>{h.userId}</div></div>)  }</div>
+        </div>
         </div>
     )
 }
