@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { useState, useEffect } from 'react';
 import './App.css';
 import {
@@ -22,7 +22,7 @@ import Roomslist from './components/Roomslist'
 ////////////////////////////////////////////
 // ES6 import or TypeScript
 import { io } from "socket.io-client";
-const port = process.env.PORT || 3003
+
 const socket = io({
   withCredentials: false,
   transports:['websocket'],
@@ -66,8 +66,10 @@ const blah=(s)=>{
      return m
   },[m])
   useEffect(()=>{
-    if(thing()){
-      setall(all.concat(thing()))
+    if(thing()){  
+     
+      setall(all.concat(m))
+      
     }
     
   },[thing])
@@ -96,7 +98,8 @@ const resetAll=()=>{
   setall([{}])
 }
 
- 
+ //CUBE
+ const cube=useRef(null)
 
 
 
@@ -108,10 +111,11 @@ const changeR=(r)=>{
     uid:uid,
   }
   socket.emit('check',rpayload)
-
-
+cube.current.className='cube-turn'
 }
-
+const roomback=()=>{
+  cube.current.className='cube'
+}
 
 
  //message function
@@ -168,11 +172,21 @@ useEffect(() => {
       {show?<Sform changr={uidchangr}/>:<p></p>}
       </Route>
       <Route path="/creator">
-           <Textshow texts={texts} uid={uid}  all={all} room={room} removeAll={resetAll}/>
-           <Friends changesid={blah} uid={uid}/>
-           <Texttype addText={sendText} uid={uid} rid={room}/>
-          <Roomslist uid={uid} changeroom={changeR}/>
-
+          
+          
+          <div className="scene">
+  <div ref={cube}className="cube">
+    <div className="cube-face  cube-face-front"> <Friends changesid={blah} uid={uid}/>
+    <Roomslist uid={uid} changeroom={changeR}/></div>
+    <div className="cube-face  cube-face-back"></div>
+    <div className="cube-face  cube-face-left"></div>
+    <div className="cube-face  cube-face-right"> <Textshow texts={texts} uid={uid}  all={all} room={room} removeAll={resetAll}/>
+          <button className='tb' onClick={()=>{roomback()}}>Back</button>
+          <Texttype addText={sendText} uid={uid} rid={room}/></div>
+    <div className="cube-face  cube-face-top"></div>
+    <div className="cube-face  cube-face-bottom"></div>
+  </div>
+</div>
           </Route>
         </Switch>
         

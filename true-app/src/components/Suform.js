@@ -52,7 +52,7 @@ axios.get('/signUpe', {
            </input>
            <input className='tt'placeholder="Password" value={pass}  onChange={(e)=> typedPass(e.target.value)}>
            </input>
-           <input className='tb' type='submit' value='login'></input>
+           <input className='tb' type='submit' value='Sign Up'></input>
        </form>
      </div>
 

@@ -51,10 +51,10 @@ const Friends=({changesid,uid})=>{
   return(
     <div className="Texttype"  onSubmit={onTurnin}>
          <form>
-        <input type='text' placeholder={"Enter friend's User Id"} value={mytext} 
+        <input className='tt'type='text' placeholder={"Who do you want to talk to?"} value={mytext} 
         onChange={(e)=> typedText(e.target.value)}>
         </input>
-        <input type="submit"></input>
+        <input className='tb' type="submit"></input>
         </form>
     </div>
   )

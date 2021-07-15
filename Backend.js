@@ -9,12 +9,12 @@ app.use(express.json());
 const MongoDBStore= require( 'connect-mongodb-session')(session)
 const port = process.env.PORT || 3001
 require("dotenv").config()
-const localMongo=''
+
 /////////////////////
 
 //mongo session
 const store = new MongoDBStore({
-    uri:process.env.MONGODB_URI||'mongodb://localhost:3000/practiceChat',
+    uri:process.env.MONGODB_URI,
     collection: 'Messagercollection'
   });
 app.use(session({
@@ -33,7 +33,7 @@ app.use(session({
 //
 
 //connect to mongoose
-mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost:3000/practiceChat',
+mongoose.connect(process.env.MONGODB_URI,
  { useUnifiedTopology: true, 
 useNewUrlParser: true,
 useFindAndModify:false });

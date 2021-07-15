@@ -21,7 +21,7 @@ const Roomslist=({uid,changeroom})=>{
       })
       },[uid]);
     return(
-        <div>
+        <div className='roomflow'>
           
           {rooms?rooms.map(room=><button className='roomButton'key={room.roomId}  onClick={()=>{changeRoom(room.roomId)}}>{room.roomId}</button>):<p>bruh</p>}
           

@@ -1,4 +1,43 @@
-
+html{
+  
+  background-image: url(sky.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+@media screen and (min-width: 500px) {
+  h1{
+    font-family: 'Alata', sans-serif;
+    font-size: 2vw;
+  }
+  p{
+    font-family: 'Alata', sans-serif;
+    font-size: 2vw;
+  }
+  .textbox .fromwho{
+    font-family: 'Alata', sans-serif;
+    font-size: 2vw;
+    color:var(--color4u);
+  }
+  
+  .textbox .themessage{
+    font-family: 'Alata', sans-serif;
+    font-size: 3vw;
+    color:var(--color4u);
+    
+  }
+  .textboxu .fromwho{
+    font-family: 'Alata', sans-serif;
+    font-size: 2vw;
+    color:var(--color4them);
+  }
+  
+  .textboxu .themessage{
+    font-family: 'Alata', sans-serif;
+    font-size: 3vw;
+    color:var(--color4them);
+    
+  }
+}
 .App {
   margin: 0%;
   text-align: center;
@@ -24,9 +63,13 @@
   background: #555; 
 }
 :root {
-  --color4u: #C7D3D4FF;
-  --color4them:#603F83FF;
+  --color4u: rgb(22, 22, 22);
+  --color4them:rgb(22, 22, 22);
+  --sizew: 100vw;
+  --sizeh:150vh; 
+  --facecolor:rgba(255, 255, 255, 0.918);
 }
+
 h1{
   font-family: 'Alata', sans-serif;
   font-size: 2vh;
@@ -36,52 +79,59 @@ p{
   font-size: 2vh;
 }
 .tt{
-  border: .25vw solid black;
+  margin-top: 10vh;
+  backdrop-filter: blur(20px) saturate(200%) contrast(45%) brightness(130%);  
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  border: .25vw solid rgb(253, 253, 253);
   width: 50vw;
   height: 5vh;
 }
 .tb{
   font-family: 'Poppins', sans-serif;
+  height: 5vh;
   font-size: 2vh;
-  background-color: white;
-  border:.25vw solid black;
+  backdrop-filter: blur(20px) saturate(200%) contrast(45%) brightness(130%);  
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0);
+  border:.25vw solid rgb(255, 255, 255);
 }
 
 .Textshow{
-  background-color: grey;
+  background-color: rgba(255, 255, 255, 0);
 }
 .textpapa{
   margin:0%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
   width: 100vw;
   height:75vh;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .textbox {
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
   margin-top: 3vh;
-  width:50%;
+  max-width:50%;
   min-height:10vh;
-  background-color:var(--color4them);
-  border-color: var(--color4them);
-  border-style: solid;
-  border-width: .25vw;
+  overflow-wrap: break-word;
+  backdrop-filter: blur(20px) saturate(200%) contrast(45%) brightness(130%);  
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 20px;
 }
 
 .textboxu {
-
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
   margin-left: 49%;
   margin-top: 3vh;
-  width:50%;
+  max-width:50%;
   min-height:10vh;
-  background-color: var(--color4u);
-  border-color: var(--color4u);
-  border-style: solid;
-  border-width: .25vw;
-  
+  border: 1px solid #fff;
+  backdrop-filter: blur(20px) saturate(200%) contrast(45%) brightness(130%);  
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 20px;
 }
 
 .textbox .fromwho{
@@ -108,15 +158,87 @@ p{
   color:var(--color4them);
   
 }
+.roomflow{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 .roomButton{
+  margin: .5vh;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
   font-family:'Poppins', sans-serif;
-  width: 20vw;
+  width: 60vw;
   height: 10vh;
-  background-color: var(--color4u);
   transition-duration: .45s;
-  
+  backdrop-filter: blur(20px) saturate(200%) contrast(45%) brightness(130%);  
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 30px;
+  border-color: white;
 }
 .roomButton:hover{
 background-color: rgba(21, 4, 131, 0.589);
+}
+
+/* Cube time */
+@keyframes turn {
+  from { transform: rotate3d(0, 0, 0, 0); }
+  to { transform: rotate3d(0, 1, 0, -90deg); }
+}
+.scene {
+  
+  width: var(--sizew);
+  height: var(--sizeh);
+  
+  perspective: 20000px;
+}
+.cube {
+  position: relative;
+  width: inherit;
+  height: inherit;
+  transform-style: preserve-3d;
+  transition-duration: 2s;
+  
+}
+.cube-turn{
+  position: relative;
+  width: inherit;
+  height: inherit;
+  transform-style: preserve-3d;
+  transform: rotate3d(0, 1, 0,-90deg);
+  transition-duration: 2s;
+}
+.cube-face {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  background-image: url(phone.gif) ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+.cube-face-front {
+ 
+  transform: translate3d(0, 0, 50vw);
+} 
+.cube-face-back {
+  
+  transform: rotateY(180deg) translate3d(0, 0, 50vw);
+} 
+.cube-face-left {
+  
+  transform: rotateY(-90deg) translate3d(0, 0, 50vw);
+} 
+.cube-face-right {
+ 
+  transform: rotateY(90deg) translate3d(0, 0, 50vw);
+} 
+.cube-face-top {
+ 
+  transform: rotateY(180deg)rotateX(90deg) translate3d(0, 0, 75vh);
+} 
+.cube-face-bottom {
+  
+  transform: rotateX(-90deg) translate3d(0, 0, 75vh);
 }
