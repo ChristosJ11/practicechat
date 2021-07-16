@@ -23,7 +23,7 @@ import Roomslist from './components/Roomslist'
 // ES6 import or TypeScript
 import { io } from "socket.io-client";
 
-const socket = io({
+const socket = io('http://localhost:3001',{
   withCredentials: false,
   transports:['websocket'],
   extraHeaders: {
@@ -99,7 +99,7 @@ const resetAll=()=>{
 }
 
  //CUBE
- const cube=useRef(null)
+ 
 
 
 
@@ -111,10 +111,10 @@ const changeR=(r)=>{
     uid:uid,
   }
   socket.emit('check',rpayload)
-cube.current.className='cube-turn'
+
 }
 const roomback=()=>{
-  cube.current.className='cube'
+  
 }
 
 
@@ -177,19 +177,13 @@ useEffect(() => {
       <Route path="/creator">
           
           
-          <div className="scene">
-  <div ref={cube}className="cube">
-    <div className="cube-face  cube-face-front"> <Friends changesid={blah} uid={uid}/>
-    <Roomslist uid={uid} changeroom={changeR}/></div>
-    <div className="cube-face  cube-face-back"></div>
-    <div className="cube-face  cube-face-left"></div>
-    <div className="cube-face  cube-face-right"> <Textshow texts={texts} uid={uid}  all={all} room={room} removeAll={resetAll}/>
+           <Friends changesid={blah} uid={uid}/>
+    <Roomslist uid={uid} changeroom={changeR}/>
+     <Textshow texts={texts} uid={uid}  all={all} room={room} removeAll={resetAll}/>
           <button className='tb' onClick={()=>{roomback()}}>Back</button>
-          <Texttype addText={sendText} uid={uid} rid={room}/></div>
-    <div className="cube-face  cube-face-top"></div>
-    <div className="cube-face  cube-face-bottom"></div>
-  </div>
-</div>
+          <Texttype addText={sendText} uid={uid} rid={room}/>
+    
+  
           </Route>
         </Switch>
         
