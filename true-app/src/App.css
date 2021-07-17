@@ -183,6 +183,9 @@ p{
 .roomButton:hover{
 background-color: rgba(21, 4, 131, 0.589);
 }
+.roomButton:focus{
+  background-color: rgba(21, 4, 131, 0.589);
+}
 
 /* Cube time */
 @keyframes turn {
