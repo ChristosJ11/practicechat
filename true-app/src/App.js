@@ -53,7 +53,8 @@ const[m,setm]=useState({})
 
 
 
-
+const dash=useRef(null)
+const panel=useRef(null)
 const blah=(s)=>{
   setsid(s)
 }
@@ -111,10 +112,12 @@ const changeR=(r)=>{
     uid:uid,
   }
   socket.emit('check',rpayload)
-
+  dash.current.className='newdash'
+  panel.current.className='newpanel'
 }
 const roomback=()=>{
-  
+  dash.current.className='dashboard'
+  panel.current.className='messagePanel'
 }
 
 
@@ -177,15 +180,17 @@ useEffect(() => {
       {show?<Sform changr={uidchangr}/>:<p></p>}
       </Route>
       <Route path="/creator">
-          
-          
-           <Friends changesid={blah} uid={uid}/>
-    <Roomslist uid={uid} changeroom={changeR}/>
-     <Textshow texts={texts} uid={uid}  all={all} room={room} removeAll={resetAll} deleteuid={deleteUID}/>
-          <button className='tb' onClick={()=>{roomback()}}>Back</button>
-          <Texttype addText={sendText} uid={uid} rid={room}/>
-    
-  
+          <div className='create'>
+              <div className='dashboard' ref={dash}>
+                 <Friends changesid={blah} uid={uid}/>
+                 <Roomslist uid={uid} changeroom={changeR}/>
+              </div>
+              <div className='messagePanel' ref={panel}>
+                  <Textshow texts={texts} uid={uid}  all={all} room={room} removeAll={resetAll} deleteuid={deleteUID}/>
+                  <button className='tb' onClick={()=>{roomback()}}>Back</button>
+                  <Texttype addText={sendText} uid={uid} rid={room}/>
+              </div>
+          </div>
           </Route>
         </Switch>
         
