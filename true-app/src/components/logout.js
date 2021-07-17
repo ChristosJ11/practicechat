@@ -9,14 +9,15 @@ import {
 } from "react-router-dom";
 import {useState} from 'react'
 import axios from "axios"
-const Logout=()=>{
+const Logout=({deleteUID})=>{
  const history=useHistory() 
  
  
  
- const deleteStorage=(e)=>{
+ const deleteStorage=()=>{
     
    localStorage.removeItem('uid')
+   deleteUID()
    if(localStorage.getItem('uid')==null){
     history.push('/signIn')
    }else{

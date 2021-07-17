@@ -5,8 +5,10 @@ import axios from "axios"
 
 
 const baseURL= process.env.BASEURL||'http://localhost:3001'
-const Textshow = ({texts, uid,all,room,removeAll})=> {
-  
+const Textshow = ({texts, uid,all,room,removeAll,deleteuid})=> {
+    const deleteuId=()=>{
+      deleteuid()
+    }
     const[b, setb]=useState([{}])
     const textpapa=useRef(null)
       useEffect(async() => {
@@ -31,7 +33,7 @@ const Textshow = ({texts, uid,all,room,removeAll})=> {
      
     return (
         <div className="Textshow">
-         <Logout/>
+         <Logout deleteUID={deleteuId}/>
          <p>Welcome {uid}!</p>
          
      <div className='textpapa' ref={textpapa}><div> {b.map(home => <div key={home._id}className={home.userId==uid?'textboxu':'textbox'}><div className='themessage' >{home.title}</div>

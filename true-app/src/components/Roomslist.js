@@ -23,7 +23,7 @@ const Roomslist=({uid,changeroom})=>{
     return(
         <div className='roomflow'>
           
-          {rooms?rooms.map(room=><button className='roomButton'key={room.roomId}  onClick={()=>{changeRoom(room.roomId)}}>{room.roomId}</button>):<p>bruh</p>}
+          {rooms?rooms.map(room=><button className='roomButton'key={room.roomId}  onClick={()=>{changeRoom(room.roomId)}}>{room.roomId}</button>):<p></p>}
           
         </div>
     )

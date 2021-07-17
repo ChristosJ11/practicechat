@@ -136,8 +136,10 @@ const onClick= ()=>{
   setShow(!show)
   
 }
-//sign in function
-
+//sign out function
+const deleteUID=()=>{
+  setuid('')
+}
 //
 //update uid
 const uidchangr=(ing)=>{
@@ -161,10 +163,10 @@ useEffect(() => {
    
     <div className="App">
     
-      <Router>
-      <Route path='/'>
-          <Link to="/signIn">Sign In</Link>
-          </Route>
+      <Router>{uid==''?<Route path='/'>
+          <Link to="/signIn" ><div className='tb'>Sign In/ Sign Up</div></Link>
+          </Route>:<div></div>}
+      
         <Switch>
           
           <Route path="/signIn">
@@ -179,7 +181,7 @@ useEffect(() => {
           
            <Friends changesid={blah} uid={uid}/>
     <Roomslist uid={uid} changeroom={changeR}/>
-     <Textshow texts={texts} uid={uid}  all={all} room={room} removeAll={resetAll}/>
+     <Textshow texts={texts} uid={uid}  all={all} room={room} removeAll={resetAll} deleteuid={deleteUID}/>
           <button className='tb' onClick={()=>{roomback()}}>Back</button>
           <Texttype addText={sendText} uid={uid} rid={room}/>
     
