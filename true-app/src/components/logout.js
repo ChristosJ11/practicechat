@@ -21,7 +21,7 @@ const Logout=({deleteUID})=>{
    if(localStorage.getItem('uid')==null){
     history.push('/signIn')
    }else{
-     console.log('whats up')
+     console.log('did not sign out')
    }
   
  }

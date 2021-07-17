@@ -1,14 +1,11 @@
 import React, { Component, useEffect, useState, useRef }  from 'react';
-import Logout from './logout'
 import axios from "axios"
 
 
 
 const baseURL= process.env.BASEURL||'http://localhost:3001'
-const Textshow = ({texts, uid,all,room,removeAll,deleteuid})=> {
-    const deleteuId=()=>{
-      deleteuid()
-    }
+const Textshow = ({ uid,all,room,removeAll})=> {
+    
     const[b, setb]=useState([{}])
     const textpapa=useRef(null)
       useEffect(async() => {
@@ -33,7 +30,7 @@ const Textshow = ({texts, uid,all,room,removeAll,deleteuid})=> {
      
     return (
         <div className="Textshow">
-         <Logout deleteUID={deleteuId}/>
+        
          <p>Welcome {uid}!</p>
          
      <div className='textpapa' ref={textpapa}><div> {b.map(home => <div key={home._id}className={home.userId==uid?'textboxu':'textbox'}><div className='themessage' >{home.title}</div>

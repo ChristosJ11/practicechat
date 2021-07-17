@@ -19,6 +19,7 @@ import Subutton from './components/Subutton'
 import Suform from './components/Suform'
 import Friends from './components/Friends'
 import Roomslist from './components/Roomslist'
+import Logout from './components/logout'
 ////////////////////////////////////////////
 // ES6 import or TypeScript
 import { io } from "socket.io-client";
@@ -182,13 +183,15 @@ useEffect(() => {
       <Route path="/creator">
           <div className='create'>
               <div className='dashboard' ref={dash}>
+                 <Logout deleteUID={deleteUID}/>
                  <Friends changesid={blah} uid={uid}/>
                  <Roomslist uid={uid} changeroom={changeR}/>
               </div>
               <div className='messagePanel' ref={panel}>
-                  <Textshow texts={texts} uid={uid}  all={all} room={room} removeAll={resetAll} deleteuid={deleteUID}/>
-                  <button className='tb' onClick={()=>{roomback()}}>Back</button>
+              <button className='tb' onClick={()=>{roomback()}}>Back</button>
+                  <Textshow  uid={uid}  all={all} room={room} removeAll={resetAll} />
                   <Texttype addText={sendText} uid={uid} rid={room}/>
+                
               </div>
           </div>
           </Route>
