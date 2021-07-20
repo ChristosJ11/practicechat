@@ -7,6 +7,11 @@ const Friends=({changesid,uid})=>{
     const[sId,setsId]=useState('')
     const onTurnin=(e)=>{
         e.preventDefault()
+        axios.get('/signUpe',{
+          params:{
+            userId:mytext
+          }
+        }).then(function(fresponse){
         axios.get('/getRoomsexist', {
         params:{
           userId:uid,
@@ -20,6 +25,9 @@ const Friends=({changesid,uid})=>{
       }
       else if(response.data[0]){
         alert('You already have a conversation with this user')
+      }
+      else if(fresponse.data==null){
+        alert('This user does not exist')
       }
       else{
         const roomPayload={
@@ -44,7 +52,7 @@ const Friends=({changesid,uid})=>{
      typedText('')
       }
       })
-       
+    })
        
           
           
