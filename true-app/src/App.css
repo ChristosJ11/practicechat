@@ -98,6 +98,16 @@ p{
   background-color: rgba(255, 255, 255, 0);
   border:.25vw solid rgb(255, 255, 255);
 }
+.Friends{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.searchResults{
+  min-height: 10vh;
+  width: 50vw;
+  background-color: gray;
+}
 
 .Textshow{
   background-color: rgba(255, 255, 255, 0);
@@ -162,6 +172,12 @@ p{
   color:var(--color4them);
   
 }
+.themessage{
+  font-family: 'Alata', sans-serif;
+  font-size: 3vh;
+  color:var(--color4them);
+  
+}
 .roomflow{
   display: flex;
   align-items: center;
@@ -172,13 +188,11 @@ p{
 .roomButton{
   margin: .5vh;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
-  font-family:'Poppins', sans-serif;
-  font-size: 2vh;
   width: 100%;
   height: 10vh;
   transition-duration: .45s;
   backdrop-filter: blur(20px) saturate(200%) contrast(45%) brightness(130%);  
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0.925);
   border-radius: 30px;
   border-color: white;
 }

@@ -22,7 +22,10 @@ const Roomslist=({uid,changeroom})=>{
     return(
         <div className='roomflow'>
           
-          {rooms?rooms.map(room=><button className='roomButton'key={room.roomId}  onClick={()=>{changeRoom(room.roomId)}}>{room.to==uid?room.from:room.to}</button>):<p></p>}
+          {rooms?rooms.map(room=><button className='roomButton'key={room.roomId}  onClick={()=>{changeRoom(room.roomId)}}>
+            <div className='themessage'>{room.to==uid?room.from:room.to}</div>
+            <div className='fromwho'>{room.lastMessage}</div>
+            </button>):<p>Add a friend to talk to or refresh the page if you cannot see the messages</p>}
           
         </div>
     )

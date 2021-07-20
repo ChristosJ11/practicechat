@@ -4,6 +4,7 @@ const roomsSchema={
     roomId:String,
     from:String,
     to:String,
+    lastMessage:String,
 
 }
 

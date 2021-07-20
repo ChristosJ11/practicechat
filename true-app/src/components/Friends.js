@@ -50,13 +50,14 @@ const Friends=({changesid,uid})=>{
           
     }
   return(
-    <div className="Texttype"  onSubmit={onTurnin}>
+    <div className="Friends"  onSubmit={onTurnin}>
          <form>
         <input className='tt'type='text' placeholder={"Who do you want to talk to?"} value={mytext} 
         onChange={(e)=> typedText(e.target.value)}>
         </input>
         <input className='tb' type="submit"></input>
         </form>
+        <div className='searchResults'></div>
     </div>
   )
 }

@@ -41,4 +41,13 @@ router.route('/getRoomsexist').get(async(req,res)=>{
         }
     })
 })
+router.route('/lastMessage').post(async(req,res)=>{
+    const filter = { roomId:req.body.room };
+    const updateDoc = {
+       lastMessage:req.body.lastMessage,
+    };
+    await Room.findOneAndUpdate(filter, updateDoc)
+  })
+
+  
 module.exports=router

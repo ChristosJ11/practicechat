@@ -19,7 +19,11 @@ const Texttype = ({addText,uid,rid})=> {
           }
           
          axios.post('/create', newMessage)
-          
+         const updateMessage={
+             room:rid,
+             lastMessage:mytext,
+         } 
+         axios.post('/lastMessage',updateMessage)
        addText(mytext)
        typedText('')
     }
