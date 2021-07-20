@@ -1,3 +1,4 @@
+const { response } = require('express');
 const express= require ('express')
 const app = require("express")();
 const httpServer = require("http").createServer(app)
@@ -28,4 +29,16 @@ router.route('/getRooms').get(async(req,res)=>{
     })
 })
 
+router.route('/getRoomsexist').get(async(req,res)=>{
+    const user=req.query.userId
+    const to=req.query.to
+    await Room.find({ $or: [ { roomId:user +'&'+ to }, { roomId :to +'&'+ user } ] },function(err,rooms){
+        if(err){
+            console.log(err)
+        }
+        else{
+           res.json(rooms)
+        }
+    })
+})
 module.exports=router

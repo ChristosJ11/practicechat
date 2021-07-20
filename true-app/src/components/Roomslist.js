@@ -4,7 +4,6 @@ const baseURL= process.env.BASEURL||'http://localhost:3001'
 const Roomslist=({uid,changeroom})=>{
     const[rooms,setrooms]=useState([{}])
     const[currentRoom,setcurrentRoom]=useState('')
-    console.log(currentRoom)
     const changeRoom=(r)=>{
       setcurrentRoom(r);
       changeroom(r)
@@ -23,7 +22,7 @@ const Roomslist=({uid,changeroom})=>{
     return(
         <div className='roomflow'>
           
-          {rooms?rooms.map(room=><button className='roomButton'key={room.roomId}  onClick={()=>{changeRoom(room.roomId)}}>{room.roomId}</button>):<p></p>}
+          {rooms?rooms.map(room=><button className='roomButton'key={room.roomId}  onClick={()=>{changeRoom(room.roomId)}}>{room.to==uid?room.from:room.to}</button>):<p></p>}
           
         </div>
     )

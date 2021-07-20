@@ -48,7 +48,7 @@ const[room,changeRoom]=useState('')
 const[texts, changeTexts]= useState("")
  const[show, setShow]=useState(false)
  const[uid, setuid]=useState('')
-const[all,setall]=useState([{}])
+const[all,setall]=useState([])
 const[sid,setsid]=useState('')
 const[m,setm]=useState({})
 
@@ -69,8 +69,11 @@ const blah=(s)=>{
   },[m])
   useEffect(()=>{
     if(thing()){  
-     
+     if(m.userId){
       setall(all.concat(m))
+      
+     }
+      
       
     }
     
@@ -97,7 +100,7 @@ const blah=(s)=>{
   
 //reset ALL
 const resetAll=()=>{
-  setall([{}])
+  setall([])
 }
 
  //CUBE

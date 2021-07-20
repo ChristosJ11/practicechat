@@ -7,9 +7,10 @@ const Friends=({changesid,uid})=>{
     const[sId,setsId]=useState('')
     const onTurnin=(e)=>{
         e.preventDefault()
-        axios.get('/getRooms', {
+        axios.get('/getRoomsexist', {
         params:{
-          userId:uid
+          userId:uid,
+          to:mytext
         }
       })
       .then(function (response) {
@@ -17,7 +18,7 @@ const Friends=({changesid,uid})=>{
           alert("No Id entered")
           
       }
-      else if(response.data.from==uid){
+      else if(response.data[0]){
         alert('You already have a conversation with this user')
       }
       else{

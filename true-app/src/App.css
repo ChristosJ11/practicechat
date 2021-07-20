@@ -17,7 +17,7 @@ html{
  width: 200vw;
  height: 100vh;
  display: flex;
- overflow:hidden;
+ 
 }
 .dashboard{
   margin: 5vw;

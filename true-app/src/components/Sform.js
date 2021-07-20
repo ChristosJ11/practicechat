@@ -35,7 +35,6 @@ axios.get('/signUpe', {
    
   }
   else if(response.data.password!=pass){
-    console.log(response)
     alert('The username or password is incorrect')
   }
   else{
