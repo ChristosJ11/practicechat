@@ -4,10 +4,11 @@ html{
   overflow-y: hidden;
   overflow-x:hidden ;
   background-color: rgb(228,247,246);
-  background-size: cover;
-  background-repeat: no-repeat;
+  
 }
-
+.defaultspacer{
+  height: 10vh;
+}
 .App {
   
   width:100vw;
@@ -141,6 +142,10 @@ p{
   font-family:  'Alata', sans-serif;
   font-size: 2vh;
   color:var(--color4u);
+}
+.typer{
+  padding: 0%;
+  
 }
 .Textshow{
   background-color: rgba(255, 255, 255, 0);

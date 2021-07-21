@@ -195,6 +195,7 @@ useEffect(() => {
                  <Roomslist uid={uid} changeroom={changeR}/>
               </div>
               <div className='messagePanel' ref={panel}>
+                <div className='defaultspacer'></div>
               <button className='tb' onClick={()=>{roomback()}}>Back</button>
                   <Textshow  uid={uid}  all={all} room={room} removeAll={resetAll} />
                   <Texttype addText={sendText} uid={uid} rid={room}/>

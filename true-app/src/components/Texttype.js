@@ -2,7 +2,6 @@ import React, { Component }  from 'react';
 import {useState} from 'react'
 import axios from "axios"
 
-const baseURL= process.env.BASEURL||'http://localhost:3001'
 const Texttype = ({addText,uid,rid})=> {
     const[mytext, typedText]= useState('')
     
@@ -32,7 +31,7 @@ const Texttype = ({addText,uid,rid})=> {
         <div>
             
         <div className="Texttype"  onSubmit={onTurnin}>
-        <form>
+        <form className='typer'>
         <input className='tt'type='text' placeholder={"what's on your mind?"} value={mytext} 
         onChange={(e)=> typedText(e.target.value)}>
         </input>
