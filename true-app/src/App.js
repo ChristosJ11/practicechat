@@ -47,6 +47,7 @@ const App=() =>{
 const[room,changeRoom]=useState('')
 const[texts, changeTexts]= useState("")
  const[show, setShow]=useState(false)
+ const[showup,setShowup]=useState(false)
  const[uid, setuid]=useState('')
 const[all,setall]=useState([])
 const[sid,setsid]=useState('')
@@ -143,6 +144,9 @@ const onClick= ()=>{
   setShow(!show)
   
 }
+const onClicker=()=>{
+  setShowup(!showup)
+}
 //sign out function
 const deleteUID=()=>{
   setuid('')
@@ -180,8 +184,8 @@ useEffect(() => {
           <Subutton onClick={onClick}/>
       {show?<Suform />:<p></p>}
          
-       <Sbutton onClick={onClick}/>
-      {show?<Sform changr={uidchangr}/>:<p></p>}
+       <Sbutton onClick={onClicker}/>
+      {showup?<Sform changr={uidchangr}/>:<p></p>}
       </Route>
       <Route path="/creator">
           <div className='create'>

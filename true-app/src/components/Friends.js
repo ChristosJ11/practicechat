@@ -1,12 +1,55 @@
-import React, { Component, useEffect, useState }  from 'react';
+import React, { Component, useEffect, useRef, useState }  from 'react';
 import axios from "axios"
+
 
 const baseURL= process.env.BASEURL||'http://localhost:3001'
 const Friends=({changesid,uid})=>{
     const[mytext, typedText]= useState('')
+    const[searchList,setsearchList]=useState([])
+    const[searchResult,setResult]=useState([{}])
     const[sId,setsId]=useState('')
+    const searchEng=useRef(null)
+    const autoDelete=useRef(null)
+   
+    ////////////////////////////////Search Engine
+    useEffect(()=>{
+      if(mytext==''){
+       searchEng.current.className='non'
+      }
+      else if(mytext!=''){
+        searchEng.current.className='searchResults'
+      }
+      axios.get('/searchUser',{
+        params:{
+          text:mytext
+        }
+      }).then(function(response){
+        setResult(response.data)
+      })
+    },[mytext])
+
+    const addpotential=(id)=>{
+      const finder=(element)=>element==id
+      if(searchList.findIndex(finder)<0){
+        setsearchList(searchList.concat(id))
+      }
+      
+      
+    }
+    /////////////////////////////// New Room
     const onTurnin=(e)=>{
         e.preventDefault()
+        if(searchList.length>1){
+            const groupPayload={
+              roomId:searchList.toString(),
+              from:uid,
+              to:searchList.toString(),
+              people:searchList.concat(uid),
+            }
+            axios.post('/newRoom',groupPayload)  
+           typedText('')
+      
+        }else{
         axios.get('/signUpe',{
           params:{
             userId:mytext
@@ -34,38 +77,30 @@ const Friends=({changesid,uid})=>{
           roomId:uid+'&'+mytext,
           from:uid,
           to:mytext,
+          people:searchList.concat(uid),
         }
-        axios.post('/newRoom',roomPayload)
-        /*
-        axios.get('http://localhost:3001/newFriend', {
-          params:{
-            friend:mytext
-          }
-        }).then(function(response){
-          
-            console.log('this is the other id '+response.data.sId)
-            setsId(response.data.sId)
-            changesid(sId)
-        })
-        */
-        
+        axios.post('/newRoom',roomPayload)  
      typedText('')
       }
       })
     })
        
-          
+  }     
           
     }
   return(
     <div className="Friends"  onSubmit={onTurnin}>
+      <h1>For private messages enter the other person's full user Id and press submit,
+        for groupchats search each person up, click them on the dropdown, and after getting all the people- press submit</h1>
+      <div className='potentialGroup'>{searchList.map(list=><button className='nameTag' onClick={()=>{}}>{list}</button>)}</div>
          <form>
-        <input className='tt'type='text' placeholder={"Who do you want to talk to?"} value={mytext} 
+        <input ref={autoDelete} className='tt'type='text' placeholder={"Who do you want to talk to?"} value={mytext} 
         onChange={(e)=> typedText(e.target.value)}>
         </input>
         <input className='tb' type="submit"></input>
         </form>
-        <div className='searchResults'></div>
+        <div className='searchResults' ref={searchEng}>{searchResult.length>0?searchResult.map(result=>
+        <button className='singleResult' onClick={()=>{addpotential(result.userId)}}>{result.userId}</button>):<div></div>}</div>
     </div>
   )
 }

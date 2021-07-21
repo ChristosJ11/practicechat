@@ -16,6 +16,7 @@ const Roomslist=({uid,changeroom})=>{
         }
       })
       .then(function (response) {
+        console.log(response.data)
        setrooms(response.data)
       })
       },[uid]);

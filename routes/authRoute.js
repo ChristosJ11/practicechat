@@ -69,6 +69,17 @@ router.route('/signIne').get((req,res)=>{
         }
     });
 })
+router.route('/searchUser').get((req,res)=>{
+var t = req.query.text 
+    User.find({userId: {$regex:new RegExp(t,'i')}}, function(err,results){
+        if(err){
+            console.log(err)
+        }
+        else{
+            res.json(results)
+        }
+    })
+})
 //////
 
   ////

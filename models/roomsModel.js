@@ -5,6 +5,7 @@ const roomsSchema={
     from:String,
     to:String,
     lastMessage:String,
+    people:Array,
 
 }
 

@@ -9,17 +9,20 @@ router.route('/newRoom').post((req,res)=>{
     const roomId=req.body.roomId;
     const from=req.body.from;
     const to=req.body.to;
+    const people=req.body.people;
     const newRoom = new Room({
         roomId,
         from,
         to,
+        people,
     })
     newRoom.save()
+    Room.createIndex({people:1})
 })
 
 router.route('/getRooms').get(async(req,res)=>{
     const user=req.query.userId
-    await Room.find({ $or: [ { to: user }, { from : user } ] },function(err,rooms){
+    await Room.find({people:user },function(err,rooms){
         if(err){
             console.log(err)
         }

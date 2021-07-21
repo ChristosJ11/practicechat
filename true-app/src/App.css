@@ -103,12 +103,39 @@ p{
   align-items: center;
   flex-direction: column;
 }
+.potentialGroup{
+  display: flex;
+  justify-content: space-between;
+  max-width: 90vw;
+}
+.nameTag{
+  min-width: 5vw;
+  height:3vh ;
+  font-family:  'Alata', sans-serif;
+  font-size: 2vh;
+  background-color: rgb(0, 252, 134);
+  border: black solid
+}
 .searchResults{
   min-height: 10vh;
   width: 50vw;
-  background-color: gray;
+  z-index: 2;
+  background-color: rgba(241, 241, 241, 0.308);
 }
-
+.non{
+  display: none;
+}
+.singleResult{
+  width: 100%;
+  min-height:5vh ;
+  z-index: 2;
+  backdrop-filter: blur(20px) saturate(200%) contrast(45%) brightness(130%);  
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  background-color: rgba(254, 254, 255, 0.308);
+  font-family:  'Alata', sans-serif;
+  font-size: 2vh;
+  color:var(--color4u);
+}
 .Textshow{
   background-color: rgba(255, 255, 255, 0);
 }
@@ -179,6 +206,7 @@ p{
   
 }
 .roomflow{
+  z-index: 0;
   display: flex;
   align-items: center;
   flex-direction: column;
