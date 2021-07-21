@@ -38,6 +38,7 @@ const Friends=({changesid,uid})=>{
     }
     /////////////////////////////// New Room
     const onTurnin=(e)=>{
+      console.log('my'+mytext)
         e.preventDefault()
         if(searchList.length>1){
             const groupPayload={
@@ -90,9 +91,8 @@ const Friends=({changesid,uid})=>{
     }
   return(
     <div className="Friends"  onSubmit={onTurnin}>
-      <h1>For private messages enter the other person's full user Id and press submit,
-        for groupchats search each person up, click them on the dropdown, and after getting all the people- press submit</h1>
-      <div className='potentialGroup'>{searchList.map(list=><button className='nameTag' onClick={()=>{}}>{list}</button>)}</div>
+      <h1>Search the person up, click them on the dropdown, press submit</h1>
+      <div className='potentialGroup'>{searchList.map(list=><button className='nameTag' >{list}</button>)}</div>
          <form>
         <input ref={autoDelete} className='tt'type='text' placeholder={"Who do you want to talk to?"} value={mytext} 
         onChange={(e)=> typedText(e.target.value)}>
@@ -100,7 +100,7 @@ const Friends=({changesid,uid})=>{
         <input className='tb' type="submit"></input>
         </form>
         <div className='searchResults' ref={searchEng}>{searchResult.length>0?searchResult.map(result=>
-        <button className='singleResult' onClick={()=>{addpotential(result.userId)}}>{result.userId}</button>):<div></div>}</div>
+        <button className='singleResult' onClick={()=>{addpotential(result.userId);typedText(result.userId)}}>{result.userId}</button>):<div></div>}</div>
     </div>
   )
 }

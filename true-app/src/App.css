@@ -1,7 +1,7 @@
 html{
   
   /*background-image: url(sky.jpg);*/
-  
+  overflow-y: hidden;
   overflow-x:hidden ;
   background-color: rgb(228,247,246);
   background-size: cover;
@@ -110,12 +110,17 @@ p{
   max-width: 90vw;
 }
 .nameTag{
-  min-width: 5vw;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  min-width: 6vw;
   height:3vh ;
   font-family:  'Alata', sans-serif;
   font-size: 2vh;
-  background-color: rgb(0, 252, 134);
-  border: black solid
+  border-radius: 5px;
+  background-color: rgba(181, 248, 252, 0.438);
+  border: white solid
 }
 .searchResults{
   min-height: 10vh;
@@ -212,7 +217,8 @@ p{
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  overflow-y: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .roomButton{
