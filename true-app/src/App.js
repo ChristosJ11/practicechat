@@ -190,6 +190,7 @@ useEffect(() => {
       <Route path="/creator">
           <div className='create'>
               <div className='dashboard' ref={dash}>
+                <div className='defaultspacer'></div>
                  <Logout deleteUID={deleteUID}/>
                  <Friends changesid={blah} uid={uid}/>
                  <Roomslist uid={uid} changeroom={changeR}/>
