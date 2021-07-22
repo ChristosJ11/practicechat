@@ -24,31 +24,24 @@ const Sform =({changr})=>{
       
       
 //
-axios.get('/signUpe', {
+axios.get('/signIne', {
   params:{
-    userId:user
+    userId:user,
+    password:pass
   }
 })
 .then(function (response) {
+  console.log('res'+(JSON.stringify(response)))
   if(response.data==null){
     alert('this user does not exist')
    
   }
-  else if(response.data.password!=pass){
+  else if(response.data!=pass){
     alert('The username or password is incorrect')
   }
   else{
-    axios.get('/signIne', {
-      params:{
-        userId:user
-      }
-    }).then(function(response){
-   
-      changr(response.data.userid)
-      localStorage.setItem('uid', response.data.userid);
-      
-    })
-    
+    changr(user)
+      localStorage.setItem('uid', user);
     history.push('/creator')
   }
     

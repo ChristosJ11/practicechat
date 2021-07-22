@@ -5,6 +5,8 @@ const session= require('express-session')
 const MongoDBStore= require( 'connect-mongodb-session')(session)
 const app=express()
 const localMongo=''
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 //const httpServer = require("http").createServer(app)
 
 
@@ -38,14 +40,20 @@ app.use(session({
   //
 router.route('/signUpe').post((req,res)=>{
     const userId=req.body.userId
-    const password=req.body.password
+    const pass=req.body.password
     const sId=''
-    const newUser = new User({
-        userId,
-        password,
-        sId,
-    })
-    newUser.save()
+    bcrypt.hash(pass, saltRounds).then(function(hash) {
+         const password=hash
+            const newUser = new User({
+                userId,
+                password,
+                sId,
+            })
+            newUser.save()
+        
+    });
+    
+    
 })
 router.route('/signUpe').get((req,res)=>{
     User.findOne({ userId:req.query.userId}, function(err, users){
@@ -53,19 +61,30 @@ router.route('/signUpe').get((req,res)=>{
             console.log(err);
         }
         else {
-            res.json(users);
+            res.send(users)
+            
         }
     });
 })
 
 router.route('/signIne').get((req,res)=>{
     User.findOne({ userId:req.query.userId}, function(err, users){
-   req.session.userid=req.query.userId
         if(err){
             console.log(err);
         }
         else {
-            res.send(req.session);
+            console.log(users)
+            if(users!=null){
+                bcrypt.compare(req.query.password, users.password).then(function(result) {
+                    if(result==true){
+                        res.send(req.query.password)
+                    }
+                });
+            }else{
+                res.json(null)
+            }
+           
+            
         }
     });
 })

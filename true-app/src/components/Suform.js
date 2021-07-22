@@ -27,11 +27,13 @@ const Suform =()=>{
 //
 axios.get('/signUpe', {
   params:{
-    userId:user
+    userId:user,
+    password:pass
   }
 })
 .then(function (response) {
-  if(response.data==null){
+  console.log(response)
+  if(response.data==''){
    axios.post('/signUpe', sendUser)
   }
   else{
