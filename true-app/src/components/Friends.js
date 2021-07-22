@@ -49,6 +49,7 @@ const Friends=({changesid,uid})=>{
             }
             axios.post('/newRoom',groupPayload)  
            typedText('')
+           setsearchList(['Refresh the page to see your new chat'])
       
         }else{
         axios.get('/signUpe',{
@@ -82,6 +83,7 @@ const Friends=({changesid,uid})=>{
         }
         axios.post('/newRoom',roomPayload)  
      typedText('')
+     setsearchList(['Refresh the page to see your new chat'])
       }
       })
     })
