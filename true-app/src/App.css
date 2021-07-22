@@ -99,6 +99,12 @@ p{
   background-color: rgba(255, 255, 255, 0);
   border:.25vw solid rgb(255, 255, 255);
 }
+.issignedup{
+  display: none;
+}
+.issigneduptrue{
+  display: visible;
+}
 .Friends{
   display: flex;
   align-items: center;

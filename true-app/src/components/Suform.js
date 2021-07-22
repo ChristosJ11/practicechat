@@ -1,4 +1,4 @@
-import React, { Component }  from 'react';
+import React, { Component, useRef }  from 'react';
 import {useState} from 'react'
 import axios from "axios"
 import Sform from './Sform'
@@ -12,6 +12,7 @@ const baseURL= process.env.BASEURL||'http://localhost:3001'
 const Suform =()=>{
     const[user, typedUser]=useState('')
     const[pass,typedPass]=useState('')
+    const signText=useRef(null)
     const onTurnin=(e)=>{
       e.preventDefault()
       if(!user || !pass){
@@ -35,13 +36,13 @@ axios.get('/signUpe', {
   console.log(response)
   if(response.data==''){
    axios.post('/signUpe', sendUser)
+   signText.current.className='issigneduptrue'
   }
   else{
     alert('this user already exists')
   }
 })
 
-//
      typedUser('')
      typedPass('')
   }
@@ -56,8 +57,9 @@ axios.get('/signUpe', {
            </input>
            <input className='tb' type='submit' value='Sign Up'></input>
        </form>
+       <div ref={signText} className='issignedup'>You are signed up, sign in below</div>
      </div>
-
+     
     )
 }
 
