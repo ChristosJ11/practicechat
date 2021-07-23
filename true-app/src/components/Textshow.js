@@ -31,7 +31,7 @@ const Textshow = ({ uid,all,room,removeAll})=> {
     return (
         <div className="Textshow">
         
-         <p>Welcome {uid}!</p>
+         <h1>{room}</h1>
          
      <div className='textpapa' ref={textpapa}>
        <div> {b.map(home => <div key={home._id}className={home.userId==uid?'textboxu':'textbox'}><div className='themessage' >{home.title}</div>
