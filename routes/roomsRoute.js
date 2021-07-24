@@ -31,7 +31,16 @@ router.route('/getRooms').get(async(req,res)=>{
         }
     })
 })
-
+router.route('/deleteRooms').delete(async(req,res)=>{
+    await Room.deleteOne({roomId:req.query.roomId}, function(err,rooms){
+        if(err){
+            console.log(err)
+        }
+        else{
+            
+        }
+    })
+})
 router.route('/getRoomsexist').get(async(req,res)=>{
     const user=req.query.userId
     const to=req.query.to
