@@ -79,6 +79,9 @@ router.route('/signIne').get((req,res)=>{
                     if(result==true){
                         res.send(req.query.password)
                     }
+                    else{
+                        res.send('no user')
+                    }
                 });
             }else{
                 res.json(null)

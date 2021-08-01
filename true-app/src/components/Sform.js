@@ -31,12 +31,13 @@ axios.get('/signIne', {
   }
 })
 .then(function (response) {
-  console.log('res'+(JSON.stringify(response)))
+  
+  console.log(response.data)
   if(response.data==null){
     alert('this user does not exist')
    
   }
-  else if(response.data!=pass){
+  else if(response.data=='no user'){
     alert('The username or password is incorrect')
   }
   else{

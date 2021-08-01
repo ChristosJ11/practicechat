@@ -2,7 +2,7 @@ import React, {  useEffect, useState }  from 'react';
 import axios from "axios"
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { IconButton } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
+
 
 
 const Roomslist=({uid,changeroom})=>{
@@ -28,7 +28,7 @@ const Roomslist=({uid,changeroom})=>{
         }
       })
       .then(function (response) {
-        console.log(response.data)
+        
        setrooms(response.data)
       })
       },[uid]);

@@ -38,7 +38,7 @@ const Friends=({changesid,uid})=>{
     }
     /////////////////////////////// New Room
     const onTurnin=(e)=>{
-      console.log('my'+mytext)
+     
         e.preventDefault()
         if(searchList.length>1){
             const groupPayload={

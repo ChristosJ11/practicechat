@@ -173,7 +173,8 @@ useEffect(() => {
   return (
    
     <div className="App">
-    
+       <div className='defaultspacer'></div>
+    <div className='logo'>BANTAM</div>
       <Router>{uid==''?<Route path='/'>
           <Link to="/signIn" ><div className='tb'>Sign In/ Sign Up</div></Link>
           </Route>:<div></div>}
@@ -190,7 +191,7 @@ useEffect(() => {
       <Route path="/creator">
           <div className='create'>
               <div className='dashboard' ref={dash}>
-                <div className='defaultspacer'></div>
+               
                  <Logout deleteUID={deleteUID}/>
                  <Friends changesid={blah} uid={uid}/>
                  <Roomslist uid={uid} changeroom={changeR}/>

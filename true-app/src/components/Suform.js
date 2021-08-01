@@ -33,7 +33,7 @@ axios.get('/signUpe', {
   }
 })
 .then(function (response) {
-  console.log(response)
+  
   if(response.data==''){
    axios.post('/signUpe', sendUser)
    signText.current.className='issigneduptrue'

@@ -3,7 +3,7 @@ html{
   /*background-image: url(sky.jpg);*/
   
   overflow-x:hidden ;
-  background-color: rgb(228,247,246);
+  background-color: black;
   
 }
 .defaultspacer{
@@ -67,11 +67,16 @@ html{
 }
 */
 :root {
-  --color4u: rgb(22, 22, 22);
-  --color4them:rgb(22, 22, 22);
+  --color4u: rgb(0, 0, 0);
+  --color4them:rgb(0, 0, 0);
   --sizew: 100vw;
   --sizeh:150vh; 
   --facecolor:rgba(255, 255, 255, 0.918);
+}
+.logo{
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  font-size: 10vw;
+  color: white;
 }
 
 h1{
@@ -92,6 +97,8 @@ p{
 }
 .tb{
   font-family: 'Poppins', sans-serif;
+  
+  font-size: 5vw;
   height: 5vh;
   font-size: 2vh;
   backdrop-filter: blur(20px) saturate(200%) contrast(45%) brightness(130%);  
@@ -187,7 +194,7 @@ p{
   min-height:10vh;
   border: 1px solid #fff;
   backdrop-filter: blur(20px) saturate(200%) contrast(45%) brightness(130%);  
-  background-color: #E5F6DF;
+  background-color: #fd1808;
   border-radius: 20px;
 }
 
@@ -217,7 +224,7 @@ p{
 }
 .themessage{
   
-  font-family: 'Alata', sans-serif;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
   font-size: 3vh;
   color:var(--color4them);
   
