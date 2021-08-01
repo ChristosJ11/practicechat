@@ -29,7 +29,8 @@ const Logout=({deleteUID})=>{
     return(
  <div>
 <button className='tb'onClick={(e)=>deleteStorage(e.target.value)}>
-    Logout
+  <h1> Logout</h1>
+   
 </button>
       
  </div>

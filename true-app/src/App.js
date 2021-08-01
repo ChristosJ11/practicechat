@@ -175,6 +175,7 @@ useEffect(() => {
     <div className="App">
        <div className='defaultspacer'></div>
     <div className='logo'>BANTAM</div>
+    <div className='subLogo'>A lightweight messaging solution</div>
       <Router>{uid==''?<Route path='/'>
           <Link to="/signIn" ><div className='tb'>Sign In/ Sign Up</div></Link>
           </Route>:<div></div>}
@@ -198,7 +199,7 @@ useEffect(() => {
               </div>
               <div className='messagePanel' ref={panel}>
                 <div className='defaultspacer'></div>
-              <button className='tb' onClick={()=>{roomback()}}>Back</button>
+              <button className='tb' onClick={()=>{roomback()}}><h1>Back</h1></button>
                   <Textshow  uid={uid}  all={all} room={room} removeAll={resetAll} />
                   <Texttype addText={sendText} uid={uid} rid={room}/>
                 
