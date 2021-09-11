@@ -1,5 +1,5 @@
 # Bantam Introduction:
-
+- This app has been named Bantam(like bantam weight in the MMA ), because it's an in browser messaging solution, making it lightweight.
 - This is a practice messaging application that I made to communicate with friends and further my skills in fullstack engineering
 - This web app uses React, Express, Node, Socket IO, and Mongo DB 
 - Features include: Password encryption, groupchats, searching up users, and deleting chats.
