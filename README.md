@@ -11,4 +11,4 @@
 4. Click the person on the dropdown, press submit, and refresh the page. 
 5. If it isn't apparent immediately, scroll down and your new chat should be there.
 # Images
-![Dashboard Image](https://github.com/ChristosJ11/practicechat/blob/main/dashboard.png?raw=true)
+![Dashboard Image](https://github.com/ChristosJ11/practicechat/blob/main/dashboard.PNG)
