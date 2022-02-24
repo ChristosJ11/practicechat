@@ -100,8 +100,11 @@ io.on("connection", ( socket) => {
   var prevRoom=''
   //console.log('hand'+socket.handshake.query.x)
   socket.on('check',async (dat)=>{
+    socket.handshake.query.x=dat.uid
    if(dat.uid==socket.handshake.query.x){
-    await socket.leave(prevRoom)
+     if(prevRoom!=''){
+      await socket.leave(prevRoom)
+     }
      socket.roomId=dat.room
      prevRoom=dat.room
     await socket.join(socket.roomId)
@@ -113,9 +116,9 @@ io.on("connection", ( socket) => {
   })
     
     
-    socket.on("send-message", (data) => {
+    socket.on("send-message", async(data) => {
       console.log(socket.handshake.query.x+' is in '+socket.roomId+' saying '+data.message)
-      io.in(socket.roomId).emit('recieve-messageu', data);
+      await io.in(socket.roomId).emit('recieve-messageu', data);
     // io.emit('recieve-messageu',data)
     });
   
