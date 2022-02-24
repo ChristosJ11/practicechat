@@ -13,7 +13,7 @@ const port = process.env.PORT || 3001
 
     
     
-router.route('/create').post((req,res)=>{
+router.route('/create').post(async (req,res)=>{
     const title=req.body.title
     const userId=req.body.userId
     const roomId=req.body.roomId
@@ -23,7 +23,7 @@ router.route('/create').post((req,res)=>{
         userId,
         roomId,
     })
-    newMessage.save()
+    await newMessage.save()
 })
 
 

@@ -9,7 +9,7 @@ app.use(express.json());
 const MongoDBStore= require( 'connect-mongodb-session')(session)
 const port = process.env.PORT || 3001
 require("dotenv").config()
-const localMongo=''
+const localMongo='mongodb+srv://Foxtrot:Mongopassftw@cluster0.0zdrk.mongodb.net/Messager?retryWrites=true&w=majority'
 /////////////////////
 
 //mongo session
@@ -98,15 +98,16 @@ const io = require("socket.io")(server, {
 /////////////////////
 io.on("connection", ( socket) => {
   var prevRoom=''
-  console.log('hand'+socket.handshake.query.x)
-  socket.on('check',(dat)=>{
+  //console.log('hand'+socket.handshake.query.x)
+  socket.on('check',async (dat)=>{
    if(dat.uid==socket.handshake.query.x){
-     socket.leave(prevRoom)
+    await socket.leave(prevRoom)
      socket.roomId=dat.room
      prevRoom=dat.room
-     socket.join(socket.roomId)
+    await socket.join(socket.roomId)
+     console.log(dat.uid)
    }else{
-     console.log('loser')
+     console.log('failed to join room')
    }
   
   })

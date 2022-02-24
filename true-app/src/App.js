@@ -24,7 +24,7 @@ import Logout from './components/logout'
 // ES6 import or TypeScript
 import { io } from "socket.io-client";
 
-const socket = io({
+const socket = io('http://localhost:3001',{
   withCredentials: false,
   transports:['websocket'],
   extraHeaders: {
@@ -132,8 +132,6 @@ const roomback=()=>{
    const mpayload={
      userId:uid,
      message:trutext,
-     
-    
    }
    socket.emit('send-message', mpayload)
    
