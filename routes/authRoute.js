@@ -4,7 +4,7 @@ const User= require("../models/userAuthModel")
 const session= require('express-session')
 const MongoDBStore= require( 'connect-mongodb-session')(session)
 const app=express()
-const localMongo='mongodb+srv://Foxtrot:Mongopassftw@cluster0.0zdrk.mongodb.net/Messager?retryWrites=true&w=majority'
+const localMongo=''
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 //const httpServer = require("http").createServer(app)

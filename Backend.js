@@ -9,7 +9,7 @@ app.use(express.json());
 const MongoDBStore= require( 'connect-mongodb-session')(session)
 const port = process.env.PORT || 3001
 require("dotenv").config()
-const localMongo='mongodb+srv://Foxtrot:Mongopassftw@cluster0.0zdrk.mongodb.net/Messager?retryWrites=true&w=majority'
+const localMongo=''
 /////////////////////
 
 //mongo session
