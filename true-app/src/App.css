@@ -94,6 +94,10 @@ p{
   font-size: 1.5vh;
   color: white;
 }
+.Sform{
+  margin: 5vw;
+}
+
 .tt{
   
   backdrop-filter: blur(20px) saturate(200%) contrast(45%) brightness(130%);  
@@ -106,6 +110,7 @@ p{
   
   height: 5vh;
   font-size: 2vh;
+  width: 10%;
   backdrop-filter: blur(20px) saturate(200%) contrast(45%) brightness(130%);  
   box-shadow: 0 0 1rem 0 rgba(156, 154, 154, 0.705);
   background-color: rgba(230, 230, 230, 0.733);

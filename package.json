@@ -10,13 +10,13 @@
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "mongoose": "^5.12.14",
-    "nodemon": "^2.0.12",
+    "node": "^16.17.0",
+    "nodemon": "^2.0.19",
     "socket.io": "^4.1.2"
   },
   "name": "the-true-react-app",
   "version": "1.0.0",
   "main": "Backend.js",
-  "devDependencies": {},
   "scripts": {
     "start": "node Backend.js",
     "heroku-postbuild": "cd true-app && npm install --only=dev && npm install && npm run build",

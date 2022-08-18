@@ -1,62 +1,35 @@
-const express= require ('express')
+const express = require("express");
 const app = require("express")();
-const httpServer = require("http").createServer(app)
-const router= express.Router();
-const Message= require("../models/messageModel")
-const port = process.env.PORT || 3001
+const httpServer = require("http").createServer(app);
+const router = express.Router();
+const Message = require("../models/messageModel");
+const port = process.env.PORT || 3001;
 
-  
+router.route("/create").post(async (req, res) => {
+  const title = req.body.title;
+  const userId = req.body.userId;
+  const roomId = req.body.roomId;
+  console.log("backend message sent from" + roomId);
+  const newMessage = new Message({
+    title,
+    userId,
+    roomId,
+  });
+  await newMessage.save();
+});
 
-  
-  
-  
-
-    
-    
-router.route('/create').post(async (req,res)=>{
-    const title=req.body.title
-    const userId=req.body.userId
-    const roomId=req.body.roomId
-    console.log('backend message sent from'+roomId)
-    const newMessage = new Message({
-        title,
-        userId,
-        roomId,
-    })
-    await newMessage.save()
-})
+router.route("/create").get(async (req, res) => {
+  await Message.find({ roomId: req.query.roomId }, function (err, users) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.json(users);
+    }
+  });
+});
 
 
-
-
-
-  router.route('/create').get(async(req,res)=>{ 
-    
-   await Message.find({roomId:req.query.roomId }, function(err, users){
-   
-        if(err){
-            console.log(err);
-        }
-        else {
-          
-            res.json(users);
-           
-        
-        }
-    });
-  })
-  
-  
-    
-  
-
-  
-
-  
-  //
-
-module.exports= router
-
+module.exports = router;
 
 /*
 io.sockets.on('connection', (socket) => {
